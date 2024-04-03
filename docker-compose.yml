@@ -1,7 +1,7 @@
 version: "3.1"
 services:
   web:
-    image: odoo:16.0
+    image: odoo:17.0
     depends_on: 
       - db
     ports:
@@ -10,12 +10,13 @@ services:
       - odoo-web-data:/var/lib/odoo
       - ./config:/etc/odoo
       - ./addons:/mnt/extra-addons
+      - ./odoo_module:/mnt/yuju-addons
     environment:
       - HOST=mydb
       - USER=odoo
       - PASSWORD=myodoo
   db:
-    image: postgres:13
+    image: postgres:15
     platform: linux/amd64
     environment: 
       - POSTGRES_DB=postgres
@@ -25,7 +26,7 @@ services:
     volumes: 
       - odoo-db-data:/var/lib/postgresql/data/pgdata
     ports:
-      - 5432:5432
+      - 5431:5432
 volumes:
   odoo-web-data:
   odoo-db-data:
