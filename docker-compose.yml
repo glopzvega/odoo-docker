@@ -10,8 +10,8 @@ services:
       - odoo-web-data:/var/lib/odoo
       - ./config:/etc/odoo
       # - ./addons:/mnt/extra-addons
-      - ./odoo_module:/mnt/extra-addons
-      - ./odoo_module/odoo_module:/mnt/yuju-addons
+      # - ./odoo_module:/mnt/extra-addons
+      # - ./odoo_module/odoo_module:/mnt/yuju-addons
     environment:
       - HOST=mydb
       - USER=odoo
