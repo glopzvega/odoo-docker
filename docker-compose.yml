@@ -1,7 +1,7 @@
-version: "3.1"
+version: "3.9"
 services:
   web:
-    image: odoo:18.0
+    image: odoo:19.0
     depends_on: 
       - db
     ports:
@@ -10,7 +10,6 @@ services:
       - odoo-web-data:/var/lib/odoo
       - ./config:/etc/odoo
       - ./addons:/mnt/extra-addons
-      - ./yuju_addons/odoo_module:/mnt/yuju-addons
     environment:
       - HOST=mydb
       - USER=odoo
